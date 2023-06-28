@@ -18,6 +18,7 @@ class Hangman:
         pygame.display.set_caption("Hangman")
         self.btn = Buttons(self)
         self.man = Man(self)
+        self.letter = None
 
     def run_game(self):
         self.word = self.get_word()
