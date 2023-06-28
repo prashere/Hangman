@@ -4,15 +4,18 @@ import random
 
 from settings import Settings
 from buttons import Buttons
+from man import Man
 
 class Hangman:
     """ Main class that runs the game """
     def __init__(self):
         pygame.init()
+        self.tries = 0
         self.settings = Settings()
         self.screen = pygame.display.set_mode((self.settings.width,self.settings.height))
         pygame.display.set_caption("Hangman")
         self.btn = Buttons(self)
+        self.man = Man(self)
 
     def run_game(self):
         while True:
@@ -25,6 +28,7 @@ class Hangman:
         self.screen.fill(self.settings.bg_color)
         # Only draw rects and load images after filling the screen or else it won't appear 
         self.btn.draw_buttons()
+        self.man.draw_man()
         pygame.display.flip()
 
     def get_word(self):
