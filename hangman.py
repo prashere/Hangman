@@ -3,6 +3,7 @@ import sys
 import random
 
 from settings import Settings
+from buttons import Buttons
 
 class Hangman:
     """ Main class that runs the game """
@@ -11,6 +12,7 @@ class Hangman:
         self.settings = Settings()
         self.screen = pygame.display.set_mode((self.settings.width,self.settings.height))
         pygame.display.set_caption("Hangman")
+        self.btn = Buttons(self)
 
     def run_game(self):
         while True:
@@ -21,6 +23,7 @@ class Hangman:
 
     def update_screen(self):
         self.screen.fill(self.settings.bg_color)
+        self.btn.draw_buttons()
         pygame.display.flip()
 
     def get_word(self):

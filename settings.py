@@ -31,6 +31,7 @@ class Settings:
         # button settings
         self.button_width = 50
         self.button_height = 50
+        self.button_margin = 10
         self.text_color = (0,0,0)
         self.button_color = (255,255,255)
         self.font = pygame.font.SysFont(None, 35)
