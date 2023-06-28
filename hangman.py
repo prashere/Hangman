@@ -45,17 +45,18 @@ class Hangman:
         self.screen.blit(self.word_image,self.word_image_rect)
 
     def check_mouse_position(self,mouse_pos):
-         temp = 0
+         temp =0
          buttons=self.btn.generate_button_details()
          for button in buttons:
                 if button['rect'].collidepoint(mouse_pos):
                     self.letter = button['letter']
          for i in range(len(self.permanent_list)):
-             if (self.permanent_list[i]).upper()==self.letter.upper():
-                 self.dynamic_list[i] = self.letter
-                 self.list_str_converter(self.dynamic_list)
-             else:
-                 temp +=1
+             if self.letter is not None:
+                if (self.permanent_list[i]).upper()==self.letter.upper():
+                    self.dynamic_list[i] = self.letter
+                    self.list_str_converter(self.dynamic_list)
+                else:
+                    temp +=1
          if temp == len(self.permanent_list):
              self.tries +=1
              self.man.create_man(self.tries)
