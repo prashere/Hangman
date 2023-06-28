@@ -1,6 +1,7 @@
 import pygame
 import sys
 import random
+from time import sleep
 
 from settings import Settings
 from buttons import Buttons
@@ -19,38 +20,51 @@ class Hangman:
         self.man = Man(self)
 
     def run_game(self):
-        word = self.get_word()
-        self.activate_word(word)
-        while True:
+        self.word = self.get_word()
+        self.activate_word(self.word)
+        self.game_active = True
+        while self.game_active:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
                 # That number 1 represents the clicking of the left mouse button
                 elif event.type == pygame.MOUSEBUTTONDOWN and event.button ==1:
                     self.check_mouse_position(pygame.mouse.get_pos())
-            self.update_screen()
+            if self.tries <= 6:
+                self.update_screen()
+                self.game_active = True
+            else:
+                self.game_active = False
+                self.update_screen()
+
+    def draw_correct_answer(self):
+        self.word_image = self.settings.word_font.render("Correct word is "+self.word,True,(0,0,0))
+        self.word_image_rect = self.word_image.get_rect()
+        self.word_image_rect.midtop = self.screen_rect.midtop
+        self.screen.blit(self.word_image,self.word_image_rect)
 
     def check_mouse_position(self,mouse_pos):
          temp = 0
          buttons=self.btn.generate_button_details()
          for button in buttons:
                 if button['rect'].collidepoint(mouse_pos):
-                    letter = button['letter']
+                    self.letter = button['letter']
          for i in range(len(self.permanent_list)):
-             if (self.permanent_list[i]).upper()==letter.upper():
-                 self.dynamic_list[i] = letter
+             if (self.permanent_list[i]).upper()==self.letter.upper():
+                 self.dynamic_list[i] = self.letter
                  self.list_str_converter(self.dynamic_list)
              else:
                  temp +=1
          if temp == len(self.permanent_list):
              self.tries +=1
              self.man.create_man(self.tries)
-                
-
 
     def update_screen(self):
         self.screen.fill(self.settings.bg_color)
         # Only draw rects and load images after filling the screen or else it won't appear 
+        if not self.game_active:
+            self.draw_correct_answer()
+            
         self.btn.draw_buttons()
         self.man.draw_man()
         self.draw_word()
