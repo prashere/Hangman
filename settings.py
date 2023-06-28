@@ -36,4 +36,9 @@ class Settings:
         self.button_color = (255,255,255)
         self.hover_color = (220,220,220)
         self.font = pygame.font.SysFont(None, 35)
+
+        # word settings
+        self.word_width = 800
+        self.word_height = 400
+        self.word_font = pygame.font.SysFont(None, 50)
         
