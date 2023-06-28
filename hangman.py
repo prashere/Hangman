@@ -1,9 +1,11 @@
 import pygame
 import sys
+import random
 
 from settings import Settings
 
 class Hangman:
+    """ Main class that runs the game """
     def __init__(self):
         pygame.init()
         self.settings = Settings()
@@ -20,6 +22,14 @@ class Hangman:
     def update_screen(self):
         self.screen.fill(self.settings.bg_color)
         pygame.display.flip()
+
+    def get_word(self):
+        """ From the word list, it fetches a random word """
+        collection = self.settings.word_list
+        random_number =random.randint(0,len(collection)-1)
+        word = collection[random_number]
+        return word
+
 
 if __name__ == '__main__':
     hg = Hangman()
