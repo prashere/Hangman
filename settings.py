@@ -34,4 +34,6 @@ class Settings:
         self.button_margin = 10
         self.text_color = (0,0,0)
         self.button_color = (255,255,255)
+        self.hover_color = (220,220,220)
         self.font = pygame.font.SysFont(None, 35)
+        

@@ -23,6 +23,7 @@ class Hangman:
 
     def update_screen(self):
         self.screen.fill(self.settings.bg_color)
+        # Only draw rects and load images after filling the screen or else it won't appear 
         self.btn.draw_buttons()
         pygame.display.flip()
 
