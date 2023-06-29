@@ -58,7 +58,7 @@ class Hangman:
                     self.flag_correct = True
                     self.win_sound.play()
                     self.update_screen()
-                    sleep(2)
+                    sleep(3)
                     self.reset_game()
             elif self.tries == 6:
                 self.game_active = False
