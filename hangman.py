@@ -1,4 +1,5 @@
 import pygame
+from pygame.locals import *
 import sys
 import random
 from time import sleep
@@ -11,6 +12,11 @@ class Hangman:
     """ Main class that runs the game """
     def __init__(self):
         pygame.init()
+        pygame.mixer.init()
+        # Initialize sounds
+        self.win_sound = pygame.mixer.Sound("sounds/win.wav")
+        self.lose_sound =  pygame.mixer.Sound("sounds/lose.wav")
+
         # Initializing variables
         self.tries = 0
         self.letter = None
@@ -50,11 +56,13 @@ class Hangman:
                 check_list = list((element.upper() for element in self.permanent_list))
                 if self.dynamic_list == check_list:
                     self.flag_correct = True
+                    self.win_sound.play()
                     self.update_screen()
                     sleep(2)
                     self.reset_game()
             elif self.tries == 6:
                 self.game_active = False
+                self.lose_sound.play()
                 self.update_screen()
                 sleep(2)
                 self.reset_game()
