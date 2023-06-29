@@ -34,6 +34,11 @@ class Hangman:
             if self.tries < 6:
                 self.update_screen()
                 self.game_active = True
+                check_list = list((element.upper() for element in self.permanent_list))
+                if self.dynamic_list == check_list:
+                    print("here")
+                    sleep(2)
+                    self.reset_game()
             elif self.tries == 6:
                 self.game_active = False
                 self.update_screen()
@@ -64,9 +69,11 @@ class Hangman:
                     self.list_str_converter(self.dynamic_list)
                 else:
                     temp +=1
+         check_list = (element.upper() for element in self.permanent_list)
          if temp == len(self.permanent_list):
              self.tries +=1
              self.man.create_man(self.tries)
+        
 
     def update_screen(self):
         self.screen.fill(self.settings.bg_color)
