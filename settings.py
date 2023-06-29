@@ -9,24 +9,30 @@ class Settings:
         self.bg_color = (177,79,179)
 
         # words to be used for the game
-        self.word_list = [
-        "abruptly", "absurd", "abyss", "affix", "askew", "avenue", "awkward", "axiom", "azure",
-        "bagpipes", "bandwagon", "banjo", "bayou", "beekeeper", "bikini", "blitz", "blizzard", "boggle", "bookworm",
-        "boxcar", "boxful", "buckaroo", "buffalo", "buffoon", "buxom", "buzzard", "buzzing", "buzzwords",
-        "cobweb", "cockiness", "croquet", "crypt", "curacao", "cycle", "daiquiri", "dirndl", "disavow", "dizzying",
-        "duplex", "dwarves", "embezzle", "equip", "espionage", "euouae", "exodus", "faking", "fishhook", "fixable",
-        "flapjack", "flopping", "fluffiness", "flyby", "foxglove", "frazzled", "frizzled", "fuchsia", "funny", "gabby",
-        "galaxy", "galvanize", "gazebo", "gizmo", "glowworm", "glyph", "gnarly", "gnostic", "gossip", "grogginess",
-        "haiku", "haphazard", "hyphen", "iatrogenic", "icebox", "injury", "ivory", "ivy", "jackpot", "jaundice",
-        "jawbreaker", "jaywalk", "jazziest", "jazzy", "jelly", "jigsaw", "jinx", "jiujitsu", "jockey", "jogging",
-        "joking", "jovial", "joyful", "juicy", "jukebox", "jumbo", "kayak", "kazoo", "keyhole", "khaki",
-        "kilobyte", "kiosk", "kitsch", "kiwifruit", "klutz", "knapsack", "larynx", "lengths", "lucky", "luxury",
-        "lymph", "marquis", "matrix", "megahertz", "microwave", "mnemonic", "mystify", "naphtha", "nightclub", "nowadays",
-        "numbskull", "nymph", "onyx", "ovary", "oxidize", "oxygen", "pajama", "peekaboo", "phlegm", "pixel",
-        "pizazz", "pneumonia", "polka", "pshaw", "psyche", "puppy", "puzzling", "quartz", "queue", "quips",
-        "quiz", "quizzes", "quorum", "razzmatazz", "rhubarb", "rhythm", "rickshaw", "schnapps", "scratch", "shiv",
-        "snazzy", "sphinx", "spritz", "squawk", "staff", "strength", "strengths", "subway", "swivel", "syndrome",
-        "thriftless", "thumbscrew", "topaz", "transcript", "transgress", "transplant", "triphthong", "twelfth", "twelfths", "unknown"]
+        self.word_list = ['apple', 'banana', 'orange', 'grape', 'watermelon', 'strawberry', 'pineapple', 'mango', 'kiwi', 'papaya',
+    'pear', 'cherry', 'plum', 'peach', 'apricot', 'blueberry', 'raspberry', 'blackberry', 'cranberry', 'lemon',
+    'lime', 'coconut', 'avocado', 'fig', 'passion fruit', 'guava', 'pomegranate', 'dragon fruit', 'melon', 'kiwifruit',
+    'starfruit', 'lychee', 'tangerine', 'grapefruit', 'persimmon', 'jackfruit', 'date', 'nectarine', 'apricot', 'quince',
+    'blackcurrant', 'boysenberry', 'gooseberry', 'kiwano', 'mangosteen', 'mulberry', 'olive', 'pawpaw', 'prickly pear',
+    'rhubarb', 'carrot', 'potato', 'tomato', 'broccoli', 'cabbage', 'cauliflower', 'spinach', 'onion', 'garlic', 'pepper',
+    'lettuce', 'cucumber', 'zucchini', 'eggplant', 'green bean', 'pea', 'corn', 'radish', 'beetroot', 'asparagus',
+    'celery', 'leek', 'sweet potato', 'pumpkin', 'squash', 'artichoke', 'brussels sprout', 'kale', 'okra', 'mushroom',
+    'turnip', 'yam', 'cassava', 'fennel', 'bamboo shoot', 'rhubarb', 'endive', 'bok choy', 'parsnip', 'ginger', 'horseradish',
+    'parsley', 'shallot', 'watercress', 'radicchio', 'arugula', 'chard', 'broccolini', 'cactus', 'chicory', 'daikon' 'dog', 'cat', 'lion', 'tiger', 'elephant', 'giraffe', 'monkey', 'kangaroo', 'zebra', 'hippopotamus',
+    'rhinoceros', 'crocodile', 'alligator', 'penguin', 'koala', 'panda', 'bear', 'wolf', 'fox', 'hyena',
+    'jaguar', 'leopard', 'cheetah', 'deer', 'moose', 'gazelle', 'antelope', 'camel', 'buffalo', 'cow',
+    'horse', 'sheep', 'goat', 'pig', 'rabbit', 'squirrel', 'hamster', 'mouse', 'rat', 'guinea pig',
+    'chimpanzee', 'orangutan', 'gorilla', 'seal', 'dolphin', 'whale', 'turtle', 'cobra', 'eagle', 'hawk''sparrow', 'parrot', 'pigeon', 'ostrich', 'peacock', 'flamingo', 'hummingbird', 'owl', 'swan', 'duck',
+    'goose', 'eagle', 'hawk', 'vulture', 'woodpecker', 'robin', 'crow', 'seagull', 'pelican', 'canary',
+    'blue jay', 'magpie', 'kingfisher', 'finch', 'toucan', 'dove', 'swallow', 'penguin', 'kiwi', 'raven',
+    'starling', 'stork', 'sparrowhawk', 'heron', 'blackbird', 'nightingale', 'crane', 'rooster', 'turkey',
+    'macaw', 'cockatoo', 'gull', 'osprey', 'cormorant', 'puffin', 'warbler', 'ibis', 'oriole', 'kookaburra',
+    'quail', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'brown', 'black', 'white',
+    'gray', 'beige', 'turquoise', 'gold', 'silver', 'maroon', 'indigo', 'olive', 'teal', 'navy',
+    'magenta', 'violet', 'cyan', 'lime', 'coral', 'peach', 'salmon', 'lavender', 'plum', 'khaki',
+    'ivory', 'azure', 'chartreuse', 'periwinkle', 'sienna', 'crimson', 'fuchsia', 'rose', 'mint',
+    'ruby', 'emerald', 'amber', 'jade', 'sapphire', 'topaz', 'bronze', 'copper', 'mauve', 'scarlet',
+    'mustard']
     
         # button settings
         self.button_width = 50

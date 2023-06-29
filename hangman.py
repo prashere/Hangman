@@ -77,7 +77,17 @@ class Hangman:
         self.word_image = self.settings.word_font.render(msg,True,(0,0,0))
         self.word_image_rect = self.word_image.get_rect()
         self.word_image_rect.midtop = (self.screen_rect.midtop[0],self.screen_rect.midtop[1]+30)
+
+        self.clear_rect()
         self.screen.blit(self.word_image,self.word_image_rect)
+       
+    def clear_rect(self):
+        clear_rect = pygame.Rect(
+        self.word_image_rect.left,
+        self.word_image_rect.top,
+        self.word_image_rect.width,
+        self.word_image_rect.height)
+        self.screen.fill(self.settings.bg_color, clear_rect)
 
 
     def check_mouse_position(self,mouse_pos):
@@ -100,6 +110,7 @@ class Hangman:
 
     def update_screen(self):
         self.screen.fill(self.settings.bg_color)
+        self.draw_correct_answer(self.hint)
         # Only draw rects and load images after filling the screen or else it won't appear 
         if not self.game_active:
             self.draw_correct_answer("Correct word is "+self.word)
@@ -115,10 +126,25 @@ class Hangman:
         """ From the word list, it fetches a random word """
         collection = self.settings.word_list
         random_number =random.randint(0,len(collection)-1)
+        self.hint = self.show_hint(random_number)
         print(random_number)
         word = collection[random_number]
         print(word)
         return word
+    
+    def show_hint(self,number):
+        if number >=0 and number<=49:
+            self.hint = "It's a fruit !"
+        elif number >=50 and number <=100:
+            self.hint= "It's a vegetable !"
+        elif number >=101 and number <= 149:
+            self.hint = "It's an animal !"
+        elif number>=150 and number<=198:
+            self.hint = "It's a bird !"
+        else:
+            self.hint = "It's a color !"
+        return self.hint
+    
     
     def activate_word(self,word):
         """  Displays underscores for each letter of the word"""
