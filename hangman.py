@@ -30,6 +30,7 @@ class Hangman:
 
     def run_game(self):
         """ The method that is called to run the game """
+        self.flag_correct = False
         self.word = self.get_word()
         self.activate_word(self.word)
 
@@ -48,7 +49,8 @@ class Hangman:
                 # Checks if the user got the word correct
                 check_list = list((element.upper() for element in self.permanent_list))
                 if self.dynamic_list == check_list:
-                    print("here")
+                    self.flag_correct = True
+                    self.update_screen()
                     sleep(2)
                     self.reset_game()
             elif self.tries == 6:
@@ -63,11 +65,12 @@ class Hangman:
         self.man.create_man(self.tries)
         self.run_game()
 
-    def draw_correct_answer(self):
-        self.word_image = self.settings.word_font.render("Correct word is "+self.word,True,(0,0,0))
+    def draw_correct_answer(self,msg):
+        self.word_image = self.settings.word_font.render(msg,True,(0,0,0))
         self.word_image_rect = self.word_image.get_rect()
-        self.word_image_rect.midtop = self.screen_rect.midtop
+        self.word_image_rect.midtop = (self.screen_rect.midtop[0],self.screen_rect.midtop[1]+30)
         self.screen.blit(self.word_image,self.word_image_rect)
+
 
     def check_mouse_position(self,mouse_pos):
          temp =0
@@ -91,7 +94,10 @@ class Hangman:
         self.screen.fill(self.settings.bg_color)
         # Only draw rects and load images after filling the screen or else it won't appear 
         if not self.game_active:
-            self.draw_correct_answer()
+            self.draw_correct_answer("Correct word is "+self.word)
+        elif self.flag_correct:
+            self.draw_correct_answer("GOOD JOB !")
+
         self.btn.draw_buttons()
         self.man.draw_man()
         self.draw_word()
