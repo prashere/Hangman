@@ -69,7 +69,6 @@ class Hangman:
                     self.list_str_converter(self.dynamic_list)
                 else:
                     temp +=1
-         check_list = (element.upper() for element in self.permanent_list)
          if temp == len(self.permanent_list):
              self.tries +=1
              self.man.create_man(self.tries)
