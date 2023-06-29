@@ -31,12 +31,19 @@ class Hangman:
                 # That number 1 represents the clicking of the left mouse button
                 elif event.type == pygame.MOUSEBUTTONDOWN and event.button ==1:
                     self.check_mouse_position(pygame.mouse.get_pos())
-            if self.tries <= 6:
+            if self.tries < 6:
                 self.update_screen()
                 self.game_active = True
-            else:
+            elif self.tries == 6:
                 self.game_active = False
                 self.update_screen()
+                sleep(2)
+                self.reset_game()
+
+    def reset_game(self):
+        self.tries = 0 
+        self.man.create_man(self.tries)
+        self.run_game()
 
     def draw_correct_answer(self):
         self.word_image = self.settings.word_font.render("Correct word is "+self.word,True,(0,0,0))
