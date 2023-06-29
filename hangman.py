@@ -11,19 +11,31 @@ class Hangman:
     """ Main class that runs the game """
     def __init__(self):
         pygame.init()
+        # Initializing variables
         self.tries = 0
+        self.letter = None
+
+        # Setting class's object
         self.settings = Settings()
+
+        # Creating a screen, setting it s caption amd calculating its rect
         self.screen = pygame.display.set_mode((self.settings.width,self.settings.height))
         self.screen_rect = self.screen.get_rect()
         pygame.display.set_caption("Hangman")
+
+        # Button and Man classes's objects
         self.btn = Buttons(self)
         self.man = Man(self)
-        self.letter = None
+       
 
     def run_game(self):
+        """ The method that is called to run the game """
         self.word = self.get_word()
         self.activate_word(self.word)
+
+        # Initializing flag
         self.game_active = True
+
         while self.game_active:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -33,7 +45,7 @@ class Hangman:
                     self.check_mouse_position(pygame.mouse.get_pos())
             if self.tries < 6:
                 self.update_screen()
-                self.game_active = True
+                # Checks if the user got the word correct
                 check_list = list((element.upper() for element in self.permanent_list))
                 if self.dynamic_list == check_list:
                     print("here")
@@ -46,6 +58,7 @@ class Hangman:
                 self.reset_game()
 
     def reset_game(self):
+        """ Resets the entire game"""
         self.tries = 0 
         self.man.create_man(self.tries)
         self.run_game()
@@ -79,7 +92,6 @@ class Hangman:
         # Only draw rects and load images after filling the screen or else it won't appear 
         if not self.game_active:
             self.draw_correct_answer()
-            
         self.btn.draw_buttons()
         self.man.draw_man()
         self.draw_word()
@@ -95,6 +107,7 @@ class Hangman:
         return word
     
     def activate_word(self,word):
+        """  Displays underscores for each letter of the word"""
         self.dynamic_list = []
         self.permanent_list = list(word)
         len_word = len(word)
@@ -103,6 +116,7 @@ class Hangman:
         self.list_str_converter(self.dynamic_list)
     
     def list_str_converter(self,list):
+        """ Converts the list to a string """
         display_string = ' '.join(str(element) for element in list)
         self.rendered_image(display_string)
     
@@ -115,9 +129,8 @@ class Hangman:
     def draw_word(self):
         self.screen.blit(self.image,self.image_rect)
 
-    
-
-
+ # If this is the main module being executed, creates an aboject of Hangman class
+ # Then it runs the run_game() method to start the game   
 if __name__ == '__main__':
     hg = Hangman()
     hg.run_game()
