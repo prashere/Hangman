@@ -58,13 +58,13 @@ class Hangman:
                     self.flag_correct = True
                     self.win_sound.play()
                     self.update_screen()
-                    sleep(3)
+                    sleep(1)
                     self.reset_game()
             elif self.tries == 6:
                 self.game_active = False
                 self.lose_sound.play()
                 self.update_screen()
-                sleep(2)
+                sleep(1)
                 self.reset_game()
 
     def reset_game(self):
@@ -76,7 +76,7 @@ class Hangman:
     def draw_correct_answer(self,msg):
         self.word_image = self.settings.word_font.render(msg,True,(0,0,0))
         self.word_image_rect = self.word_image.get_rect()
-        self.word_image_rect.midtop = (self.screen_rect.midtop[0],self.screen_rect.midtop[1]+30)
+        self.word_image_rect = pygame.Rect(self.screen_rect.midtop[0]-150, self.screen_rect.midtop[1]+30,400,200)
 
         self.clear_rect()
         self.screen.blit(self.word_image,self.word_image_rect)
@@ -87,7 +87,7 @@ class Hangman:
         self.word_image_rect.top,
         self.word_image_rect.width,
         self.word_image_rect.height)
-        self.screen.fill(self.settings.bg_color, clear_rect)
+        self.screen.fill(self.settings.bg_color,clear_rect)
 
 
     def check_mouse_position(self,mouse_pos):
@@ -116,7 +116,7 @@ class Hangman:
             self.draw_correct_answer("Correct word is "+self.word)
         elif self.flag_correct:
             self.draw_correct_answer("GOOD JOB !")
-
+        
         self.btn.draw_buttons()
         self.man.draw_man()
         self.draw_word()
