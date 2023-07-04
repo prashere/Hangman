@@ -153,7 +153,7 @@ class Hangman:
         len_word = len(word)
         for i  in range(len_word):
             self.dynamic_list.append("_")
-        self.list_str_converter(self.dynamic_list)
+            self.list_str_converter(self.dynamic_list)
     
     def list_str_converter(self,list):
         """ Converts the list to a string """
