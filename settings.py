@@ -11,7 +11,7 @@ class Settings:
         # words to be used for the game
         self.word_list = ['apple', 'banana', 'orange', 'grape', 'watermelon', 'strawberry', 'pineapple', 'mango', 'kiwi', 'papaya',
     'pear', 'cherry', 'plum', 'peach', 'apricot', 'blueberry', 'raspberry', 'blackberry', 'cranberry', 'lemon',
-    'lime', 'coconut', 'avocado', 'fig', 'passion fruit', 'guava', 'pomegranate', 'dragon fruit', 'melon', 'kiwifruit',
+    'lime', 'coconut', 'avocado', 'fig', 'passion', 'guava', 'pomegranate', 'dragonfruit', 'melon', 'kiwifruit',
     'starfruit', 'lychee', 'tangerine', 'grapefruit', 'persimmon', 'jackfruit', 'date', 'nectarine', 'apricot', 'quince',
     'blackcurrant', 'boysenberry', 'gooseberry', 'kiwano', 'mangosteen', 'mulberry', 'olive', 'pawpaw', 'prickly pear',
     'rhubarb', 'carrot', 'potato', 'tomato', 'broccoli', 'cabbage', 'cauliflower', 'spinach', 'onion', 'garlic', 'pepper',
@@ -24,7 +24,7 @@ class Settings:
     'horse', 'sheep', 'goat', 'pig', 'rabbit', 'squirrel', 'hamster', 'mouse', 'rat', 'guinea pig',
     'chimpanzee', 'orangutan', 'gorilla', 'seal', 'dolphin', 'whale', 'turtle', 'cobra', 'eagle', 'hawk''sparrow', 'parrot', 'pigeon', 'ostrich', 'peacock', 'flamingo', 'hummingbird', 'owl', 'swan', 'duck',
     'goose', 'eagle', 'hawk', 'vulture', 'woodpecker', 'robin', 'crow', 'seagull', 'pelican', 'canary',
-    'blue jay', 'magpie', 'kingfisher', 'finch', 'toucan', 'dove', 'swallow', 'penguin', 'kiwi', 'raven',
+    'bluejay', 'magpie', 'kingfisher', 'finch', 'toucan', 'dove', 'swallow', 'penguin', 'kiwi', 'raven',
     'starling', 'stork', 'sparrowhawk', 'heron', 'blackbird', 'nightingale', 'crane', 'rooster', 'turkey',
     'macaw', 'cockatoo', 'gull', 'osprey', 'cormorant', 'puffin', 'warbler', 'ibis', 'oriole', 'kookaburra',
     'quail', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'brown', 'black', 'white',
