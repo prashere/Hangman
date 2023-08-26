@@ -41,5 +41,5 @@ class Buttons:
             self.screen.blit(button['text'], text_rect)
             #self.screen.blit(button['text'], button['rect'])
 
-    
+     
 
