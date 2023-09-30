@@ -36,19 +36,6 @@ Make sure you have the following dependencies installed:
 - Python (>=3.6)
 - Pygame (install via `pip install pygame`)
 
-## Contributing
-
-Contributions are welcome! If you want to improve this Hangman game or add new features, please follow these guidelines:
-
-1. Fork the repository.
-2. Create a new branch for your feature: `git checkout -b feature-name`.
-3. Make your changes and commit them: `git commit -m 'Add feature'`.
-4. Push to your forked repository: `git push origin feature-name`.
-5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Author
 
